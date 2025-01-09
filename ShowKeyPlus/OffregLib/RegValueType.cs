@@ -1,0 +1,37 @@
+﻿using System;
+
+namespace OffregLib
+{
+	// Token: 0x0200000E RID: 14
+	public enum RegValueType : uint
+	{
+		// Token: 0x04000014 RID: 20
+		REG_NONE,
+		// Token: 0x04000015 RID: 21
+		REG_SZ,
+		// Token: 0x04000016 RID: 22
+		REG_EXPAND_SZ,
+		// Token: 0x04000017 RID: 23
+		REG_BINARY,
+		// Token: 0x04000018 RID: 24
+		REG_DWORD,
+		// Token: 0x04000019 RID: 25
+		REG_DWORD_LITTLE_ENDIAN = 4U,
+		// Token: 0x0400001A RID: 26
+		REG_DWORD_BIG_ENDIAN,
+		// Token: 0x0400001B RID: 27
+		REG_LINK,
+		// Token: 0x0400001C RID: 28
+		REG_MULTI_SZ,
+		// Token: 0x0400001D RID: 29
+		REG_RESOURCE_LIST,
+		// Token: 0x0400001E RID: 30
+		REG_FULL_RESOURCE_DESCRIPTOR,
+		// Token: 0x0400001F RID: 31
+		REG_RESOURCE_REQUIREMENTS_LIST,
+		// Token: 0x04000020 RID: 32
+		REG_QWORD,
+		// Token: 0x04000021 RID: 33
+		REG_QWORD_LITTLE_ENDIAN = 11U
+	}
+}

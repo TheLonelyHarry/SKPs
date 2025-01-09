@@ -1,0 +1,25 @@
+﻿using System;
+
+namespace OffregLib
+{
+	// Token: 0x0200000F RID: 15
+	public enum RegPredefinedKeys
+	{
+		// Token: 0x04000023 RID: 35
+		HKEY_CLASSES_ROOT = -2147483648,
+		// Token: 0x04000024 RID: 36
+		HKEY_CURRENT_USER,
+		// Token: 0x04000025 RID: 37
+		HKEY_LOCAL_MACHINE,
+		// Token: 0x04000026 RID: 38
+		HKEY_USERS,
+		// Token: 0x04000027 RID: 39
+		HKEY_PERFORMANCE_DATA,
+		// Token: 0x04000028 RID: 40
+		HKEY_CURRENT_CONFIG,
+		// Token: 0x04000029 RID: 41
+		HKEY_DYN_DATA,
+		// Token: 0x0400002A RID: 42
+		HKEY_CURRENT_USER_LOCAL_SETTINGS
+	}
+}

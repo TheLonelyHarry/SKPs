@@ -1,0 +1,471 @@
+<UserControl
+	x:Class="ShowKeyPlusWPF.Views.PKInfo" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:viewmodel="clr-namespace:ShowKeyPlusWPF.ViewModel"
+	Height="418.8"
+	Width="744.7" xmlns:views="clr-namespace:ShowKeyPlusWPF.Views"
+	Loaded="UserControl_Loaded">
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<BooleanToVisibilityConverter
+				x:Key="VisibleIfTrueConverter" />
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+	<Viewbox
+		Name="Viewbox"
+		Margin="0,0,30.8,0"
+		Height="420"
+		VerticalAlignment="Top">
+		<Grid
+			Height="1455"
+			ColumnSpan="3"
+			Margin="-2,17,-13,-17"
+			Width="2392"
+			ShowGridLines="False">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition
+					Width="*" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition
+					Name="grdRowHeader"
+					Height="36*" />
+				<RowDefinition
+					Name="grdRowProdInfo"
+					Height="Auto" />
+				<RowDefinition
+					Name="grdRowSpacer"
+					Height="2*" />
+				<RowDefinition
+					Name="grdGeneric"
+					Height="Auto" />
+				<RowDefinition
+					Name="grdUpgrades"
+					Height="Auto" />
+			</Grid.RowDefinitions>
+			<TextBlock
+				Name="txtHeader"
+				x:Uid="txtHeader"
+				Width="1568"
+				Text="Windows Product Information"
+				Grid.Row="0"
+				Grid.Column="0"
+				FontSize="72"
+				VerticalAlignment="Center"
+				Height="96"
+				HorizontalAlignment="Left"
+				Margin="70,-3,0,1164.6"
+				Grid.RowSpan="2" />
+			<Grid
+				Name="PK"
+				Margin="70,0,0,31.6"
+				Row="1"
+				HorizontalAlignment="Left"
+				Width="2243"
+				Height="1069"
+				VerticalAlignment="Bottom">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition
+						Width="Auto"
+						MinWidth="564" />
+					<ColumnDefinition
+						Width="Auto"
+						MinWidth="1679.2" />
+				</Grid.ColumnDefinitions>
+				<Grid.RowDefinitions>
+					<RowDefinition
+						Name="grdRowProdName"
+						Height="162*" />
+					<RowDefinition
+						Name="grdRowProdiD"
+						Height="162*" />
+					<RowDefinition
+						Name="grdVersion"
+						Height="162*" />
+					<RowDefinition
+						Name="grdRowInstallKey"
+						Height="162*" />
+					<RowDefinition
+						Name="grdRowOriginalKey"
+						Height="{Binding ProductKeyInfoModelCol[0].HideOrig, Mode=TwoWay}" />
+					<RowDefinition
+						Name="grdRowOriginalEdition"
+						Height="{Binding ProductKeyInfoModelCol[0].HideOrig, Mode=TwoWay}" />
+					<RowDefinition
+						Name="grdRowOEMKey"
+						Height="162*" />
+					<RowDefinition
+						Name="grdRowOEMDescription"
+						Height="{Binding ProductKeyInfoModelCol[0].HideOEM, Mode=TwoWay}" />
+				</Grid.RowDefinitions>
+				<Border
+					Width="1984"
+					Grid.ColumnSpan="2"
+					Background="{DynamicResource TextBoxBackground}"
+					CornerRadius="20"
+					Margin="0,10,259.2,0.2"
+					HorizontalAlignment="Left">
+					<TextBlock
+						Name="LblProductName"
+						x:Uid="txtProductName"
+						Width="Auto"
+						Height="Auto"
+						Text="Product Name:"
+						FontSize="48"
+						Margin="53,0,1434,0"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Left"
+						Visibility="{Binding ProductKeyInfo.MessageVisibilty, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+				</Border>
+				<TextBlock
+					Name="ProductName"
+					Width="Auto"
+					Height="Auto"
+					Grid.Row="0"
+					Margin="105,40,0,51.2"
+					Grid.Column="1"
+					FontSize="48"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center"
+					Text="{Binding Path=ProductKeyInfoModelCol[0].ProductName}" />
+				<Border
+					Width="1984"
+					Margin="0,5,259.2,0.2"
+					HorizontalAlignment="Left"
+					Background="{DynamicResource TextBoxBackground}"
+					CornerRadius="20"
+					Grid.Row="1"
+					Grid.ColumnSpan="2">
+					<TextBlock
+						Name="LblProductID"
+						x:Uid="txtProductID"
+						Width="Auto"
+						Height="Auto"
+						Text="Product ID:"
+						FontSize="48"
+						RenderTransformOrigin="0.5,0.5"
+						Margin="68,0,1468,-0.8"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center" />
+				</Border>
+				<TextBlock
+					Name="ProductID"
+					Width="Auto"
+					Height="Auto"
+					Margin="105,44.8,0,46.4"
+					Grid.Column="1"
+					FontSize="48"
+					RenderTransformOrigin="0.5,0.5"
+					Grid.Row="1"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Text="{Binding ProductKeyInfoModelCol[0].ProductID}" />
+				<Border
+					Width="1984"
+					Margin="0,5,259.2,0.2"
+					HorizontalAlignment="Left"
+					Background="{DynamicResource TextBoxBackground}"
+					CornerRadius="20"
+					Grid.Row="2"
+					Grid.ColumnSpan="2" />
+				<TextBlock
+					Name="LblVersion"
+					x:Uid="txtBuildVersion"
+					Width="Auto"
+					Height="Auto"
+					Text="Build Version:"
+					Margin="47,41.6,0,49.6"
+					Grid.Column="0"
+					FontSize="48"
+					Grid.Row="2"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center" />
+				<TextBlock
+					Name="Version"
+					Width="Auto"
+					Height="Auto"
+					Margin="105,30.6,0,60.6"
+					Grid.Column="1"
+					FontSize="48"
+					Grid.Row="2"
+					RenderTransformOrigin="0.5,0.5"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Text="{Binding ProductKeyInfoModelCol[0].Version}" />
+				<Border
+					Width="1984"
+					Margin="0,5,259.2,0.2"
+					HorizontalAlignment="Left"
+					Background="{DynamicResource TextBoxBackground}"
+					CornerRadius="20"
+					Grid.Row="3"
+					Grid.ColumnSpan="2" />
+				<TextBlock
+					Name="LblInstalledKey"
+					x:Uid="txtInstalledKey"
+					Width="Auto"
+					Height="Auto"
+					Text="Installed Key:"
+					Margin="47,41.6,0,49.6"
+					Grid.Column="0"
+					FontSize="48"
+					Grid.Row="3"
+					RenderTransformOrigin="0.55,0.992"
+					HorizontalAlignment="Left"
+					VerticalAlignment="Center" />
+				<DockPanel
+					Grid.Column="1"
+					Margin="105,0.4,0.2,5.8"
+					Grid.Row="3"
+					Width="Auto">
+					<TextBlock
+						Name="InstalledKey"
+						Width="Auto"
+						Height="Auto"
+						Margin="0,0,0,17.2"
+						FontSize="48"
+						RenderTransformOrigin="0.5,0.5"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						Text="{Binding ProductKeyInfoModelCol[0].InstalledKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						MouseLeftButtonDown="InstalledKey_MouseLeftButtonDown"
+						MouseEnter="InstalledKey_MouseEnter">
+						<FrameworkElement.ToolTip>
+							<ToolTip
+								Name="tpToggle2"
+								x:Uid="tpToggle"
+								Content="Click to toggle masking key"
+								Background="{DynamicResource SystemColors.WindowBrushKey}"
+								Foreground="{DynamicResource SystemColors.WindowTextBrushKey}" />
+						</FrameworkElement.ToolTip>
+					</TextBlock>
+					<Label
+						Name="lblGenricKey"
+						Width="Auto"
+						Height="Auto"
+						Content=" *"
+						FontSize="48"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						Visibility="{Binding ProductKeyInfoModelCol[0].Generic, Converter={StaticResource VisibleIfTrueConverter}, Mode=OneWay}"
+						Foreground="{Binding AccentBrushModel[0].AccentBright}" />
+				</DockPanel>
+				<Border
+					Width="1984"
+					Margin="0,5,259.2,0.2"
+					HorizontalAlignment="Left"
+					Background="{DynamicResource TextBoxBackground}"
+					CornerRadius="20"
+					Grid.Row="4"
+					Grid.ColumnSpan="2" />
+				<TextBlock
+					Name="LblOriginalKey"
+					x:Uid="txtOriginalKey"
+					Width="Auto"
+					Height="64"
+					Text="Original Key:"
+					Margin="47,6.2,202,0.2"
+					Grid.Column="0"
+					FontSize="48"
+					Grid.Row="4"
+					RenderTransformOrigin="0.226,0.088"
+					Grid.ColumnSpan="1"
+					VerticalAlignment="Center" />
+				<DockPanel
+					Grid.Column="1"
+					Margin="0.3,1.2,0.2,0"
+					Grid.Row="4"
+					Width="Auto"
+					Height="Auto">
+					<TextBlock
+						Name="OriginalKey"
+						Width="Auto"
+						Height="Auto"
+						Grid.Column="1"
+						Margin="108,1.2,0.2,0"
+						Grid.Row="4"
+						FontSize="48"
+						RenderTransformOrigin="1.198,0.777"
+						VerticalAlignment="Center"
+						HorizontalAlignment="Left"
+						Text="{Binding ProductKeyInfoModelCol[0].OriginalKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+						MouseLeftButtonDown="OriginalKey_MouseLeftButtonDown"
+						MouseEnter="OriginalKey_MouseEnter">
+						<FrameworkElement.ToolTip>
+							<ToolTip
+								Name="tpToggle"
+								x:Uid="tpToggle"
+								Content="Click to toggle masking key"
+								Background="{DynamicResource SystemColors.WindowBrushKey}"
+								Foreground="{DynamicResource SystemColors.WindowTextBrushKey}" />
+						</FrameworkElement.ToolTip>
+					</TextBlock>
+					<Label
+						Name="lblGenricKey2"
+						Width="Auto"
+						Height="Auto"
+						Content=" *"
+						FontSize="48"
+						HorizontalAlignment="Left"
+						VerticalAlignment="Center"
+						Margin="0,25,0,0"
+						Visibility="{Binding ProductKeyInfoModelCol[0].Generic2, Converter={StaticResource VisibleIfTrueConverter}, Mode=OneWay}"
+						Foreground="{Binding AccentBrushModel[0].AccentBright}" />
+				</DockPanel>
+				<Border
+					Width="1984"
+					Margin="0,5,259.2,0.2"
+					HorizontalAlignment="Left"
+					Background="{DynamicResource TextBoxBackground}"
+					CornerRadius="20"
+					Grid.Row="5"
+					Grid.ColumnSpan="2" />
+				<TextBlock
+					Name="LblOriginalEdition"
+					x:Uid="txtOriginalEdition"
+					Width="Auto"
+					Height="Auto"
+					Text="Original Edition:"
+					Margin="47,4.8,95,1.6"
+					Grid.Column="0"
+					FontSize="48"
+					Grid.Row="5"
+					VerticalAlignment="Center" />
+				<TextBlock
+					Name="OriginalEdition"
+					Width="Auto"
+					Height="Auto"
+					Margin="105,12.8,259.2,148"
+					Grid.Column="1"
+					FontSize="48"
+					Grid.Row="5"
+					VerticalAlignment="Center"
+					Grid.RowSpan="2"
+					HorizontalAlignment="Left"
+					Text="{Binding ProductKeyInfoModelCol[0].OriginalEdition}" />
+				<Border
+					Width="1984"
+					Margin="0,5,259.2,0.2"
+					HorizontalAlignment="Left"
+					Background="{DynamicResource TextBoxBackground}"
+					CornerRadius="20"
+					Grid.Row="6"
+					Grid.ColumnSpan="2" />
+				<TextBlock
+					Name="LblOEMKey"
+					x:Uid="txtOEMKey"
+					Width="Auto"
+					Height="Auto"
+					Text="OEM Key:"
+					Margin="47,42.4,113,48"
+					Grid.Column="0"
+					FontSize="48"
+					Grid.Row="6"
+					RenderTransformOrigin="0.485,1.324"
+					VerticalAlignment="Center" />
+				<TextBlock
+					Name="OEMKey"
+					Width="Auto"
+					Height="64"
+					Margin="108,42.4,268.2,48"
+					Grid.Column="1"
+					FontSize="48"
+					Grid.Row="6"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Text="{Binding ProductKeyInfoModelCol[0].OEMKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+					MouseLeftButtonDown="OEMKey_MouseLeftButtonDown"
+					MouseEnter="OEMKey_MouseEnter">
+					<FrameworkElement.ToolTip>
+						<ToolTip
+							Name="tpToggle1"
+							x:Uid="tpToggle"
+							Content="Click to toggle masking key"
+							Background="{DynamicResource SystemColors.WindowBrushKey}"
+							Foreground="{DynamicResource SystemColors.WindowTextBrushKey}" />
+					</FrameworkElement.ToolTip>
+				</TextBlock>
+				<Border
+					Width="1984"
+					Margin="0,5,259.2,0.2"
+					HorizontalAlignment="Left"
+					Background="{DynamicResource TextBoxBackground}"
+					CornerRadius="20"
+					Grid.Row="7"
+					Grid.ColumnSpan="2" />
+				<TextBlock
+					Name="LblOEMDescription"
+					x:Uid="txtOEMDescription"
+					Width="Auto"
+					Height="Auto"
+					Text="OEM Description:"
+					Margin="47,0,10,9.6"
+					Grid.Column="0"
+					FontSize="48"
+					Grid.Row="7"
+					RenderTransformOrigin="0.549,2.083"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left" />
+				<TextBlock
+					Name="OEMDescription"
+					Width="Auto"
+					Height="Auto"
+					Margin="108,9,259.2,0.6"
+					Grid.Column="1"
+					FontSize="48"
+					Grid.Row="7"
+					VerticalAlignment="Center"
+					HorizontalAlignment="Left"
+					Text="{Binding ProductKeyInfoModelCol[0].OEMDescription}" />
+			</Grid>
+			<TextBlock
+				Name="lblGeneric"
+				TextWrapping="WrapWithOverflow"
+				Width="Auto"
+				Height="Auto"
+				Grid.Column="0"
+				Grid.Row="3"
+				Text="Upgrade: "
+				FontSize="48"
+				VerticalAlignment="Top"
+				Margin="70,21.4,0,21.8"
+				HorizontalAlignment="Left"
+				Foreground="{Binding AccentBrushModel[0].AccentBright}">
+				<FrameworkElement.Style>
+					<Style
+						TargetType="{x:Type TextBlock}">
+						<Setter
+							Property="Visibility"
+							Value="Hidden" />
+						<Style.Triggers>
+							<DataTrigger
+								Value="Visible"
+								Binding="{Binding ProductKeyInfoModelCol[0].Generic, Converter={StaticResource VisibleIfTrueConverter}, Mode=OneWay}">
+								<Setter
+									Property="Visibility"
+									Value="Visible" />
+							</DataTrigger>
+							<DataTrigger
+								Value="Visible"
+								Binding="{Binding ProductKeyInfoModelCol[0].Generic2, Converter={StaticResource VisibleIfTrueConverter}, Mode=OneWay}">
+								<Setter
+									Property="Visibility"
+									Value="Visible" />
+							</DataTrigger>
+						</Style.Triggers>
+					</Style>
+				</FrameworkElement.Style>
+			</TextBlock>
+			<TextBlock
+				Name="lblUpgrades"
+				Width="Auto"
+				Height="64"
+				Grid.Column="0"
+				Grid.Row="4"
+				Text="Upgrade: "
+				FontSize="48"
+				VerticalAlignment="Center"
+				Margin="70,21.2,0,22"
+				HorizontalAlignment="Left"
+				Foreground="{Binding AccentBrushModel[0].AccentBright}" />
+		</Grid>
+	</Viewbox>
+</UserControl>

@@ -1,0 +1,27 @@
+<Viewbox xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	Width="16"
+	Height="16">
+	<Rectangle
+		Width="16"
+		Height="16">
+		<Shape.Fill>
+			<DrawingBrush>
+				<DrawingBrush.Drawing>
+					<DrawingGroup>
+						<DrawingGroup.Children>
+							<GeometryDrawing
+								Brush="#00FFFFFF"
+								Geometry="F1 M16,16 L0,16 L0,0 L16,0" />
+							<GeometryDrawing
+								Brush="#FFF6F6F6"
+								Geometry="F1 M8.0039,11.2285 L6.7869,13.4545 L3.4039,11.1155 L5.0599,9.1115 L2.6579,8.7025 L4.0529,4.7905 L6.1879,5.6805 L5.9089,2.9995 L10.0919,2.9995 L9.8139,5.6805 L11.9469,4.7905 L13.3409,8.7005 L10.9509,9.1115 L12.5879,11.1135 L9.2469,13.4555" />
+							<GeometryDrawing
+								Brush="#FF424242"
+								Geometry="F1 M9.0908,8.416 L11.1318,10.912 L9.5798,12 L7.9948,9.16 L6.4428,12 L4.8688,10.912 L6.9318,8.416 L3.9998,7.916 L4.6408,6.119 L7.3558,7.251 L7.0188,4 L8.9828,4 L8.6458,7.251 L11.3598,6.119 L11.9998,7.916" />
+						</DrawingGroup.Children>
+					</DrawingGroup>
+				</DrawingBrush.Drawing>
+			</DrawingBrush>
+		</Shape.Fill>
+	</Rectangle>
+</Viewbox>

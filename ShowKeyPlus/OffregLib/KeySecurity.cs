@@ -1,0 +1,29 @@
+﻿using System;
+
+namespace OffregLib
+{
+	// Token: 0x02000011 RID: 17
+	public enum KeySecurity
+	{
+		// Token: 0x0400002F RID: 47
+		KEY_QUERY_VALUE = 1,
+		// Token: 0x04000030 RID: 48
+		KEY_SET_VALUE,
+		// Token: 0x04000031 RID: 49
+		KEY_ENUMERATE_SUB_KEYS = 8,
+		// Token: 0x04000032 RID: 50
+		KEY_NOTIFY = 16,
+		// Token: 0x04000033 RID: 51
+		DELETE = 65536,
+		// Token: 0x04000034 RID: 52
+		STANDARD_RIGHTS_READ = 131072,
+		// Token: 0x04000035 RID: 53
+		KEY_READ = 131097,
+		// Token: 0x04000036 RID: 54
+		KEY_WRITE = 131078,
+		// Token: 0x04000037 RID: 55
+		KEY_ALL_ACCESS = 983103,
+		// Token: 0x04000038 RID: 56
+		MAXIMUM_ALLOWED = 33554432
+	}
+}
